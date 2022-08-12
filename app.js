@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const db = require('./db/connection');
+const bodyParser = require('body-parser');
+
 
 const PORT = 3000;
 
@@ -15,7 +17,7 @@ db
         console.log("Conectou ao banco de dados")
     })
     .catch(err =>{
-        console.log("Ocorreu um erro...")
+        console.log("Ocorreu um erro...", err)
     })
 
 app.get('/', (req, res) =>{
